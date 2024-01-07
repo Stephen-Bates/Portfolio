@@ -24,19 +24,15 @@ h4{font-size: 75%;}
     background-color: var(--color-dark);
     color: #fff;
 }
-.flex-box-row {
-    display: flex;
-    flex-direction: row;
-}
-.flex-box-column {
-    display: flex;
-    flex-direction: column;
-}
 
+main {
+    overflow: hidden;
+}
 
 main > section{
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-columns: 300px auto;
 }
 
 .section-name{
@@ -50,13 +46,15 @@ main > section{
 .section-content{
     margin: 1rem;
     font-size: var(--medium-font);
+    line-height: 2rem;
 }
 #name{
-    background-color: var(--color-medium);
+    padding: 1.5rem 1rem 0 1rem;
+    background: linear-gradient(var(--color-dark),var(--color-medium));
+    border-radius: 1rem;
     text-shadow: 2px 2px black;
-    border: 3px solid black;
 }
-#contact > .section-content{
+#contact .section-content{
     font-style: italic;
 }
 main{
@@ -72,13 +70,10 @@ main{
     box-shadow: inset .5em .5em  1em var(--color-light), .5em .5em 1em var(--color-dark);
 }
 
-.project-card h2{
+.project-card .project-name{
+    margin: 2rem 0;
     text-wrap: nowrap;
     transition: all 1s;
-    width: 100%;
-}
-.project-card:focus-within h2{
-    width: 40%;
 }
 
 .project-card:focus-within .project-details{
@@ -87,7 +82,6 @@ main{
 }
 .project-details{
     justify-content: space-between;
-    padding: 0;
     border-radius: 10px;
     box-shadow: inset 0 0 1rem 1rem var(--color-medium);
     transition: all 1s;
@@ -99,6 +93,11 @@ main{
     padding: 1rem;
     text-align: center;
 }
+.project-details p{
+    padding: 0 0 1rem 0;
+    text-align: center;
+}
+
 .project-image {
     max-width: 50%;
 }
@@ -119,4 +118,19 @@ nav {
 footer {
     text-align: center;
     padding: 3rem;
+}
+
+@media (max-width:800px) {
+    .section-name {
+        border-style: none  none solid none;
+        text-align: center;
+    }
+    main > section{
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+    .section-name {
+        margin: 1rem;
+        padding: 1rem;
+    }
 }
