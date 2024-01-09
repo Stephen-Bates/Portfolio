@@ -175,6 +175,7 @@ Section titles lie on top of the section contents and text is centered
     }
     #name{
         text-align: center;
+        font-size: 150%;
     }
     nav{
         grid-column: auto;
