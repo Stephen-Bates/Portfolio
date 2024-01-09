@@ -1,3 +1,4 @@
+/*set up variables for style pallete and font sizes*/
 :root{
     --color-light: #e4fde1;
     --color-medium: #8acb88;
@@ -6,12 +7,13 @@
     --medium-font: 1rem;
     --large-font: 2rem;
 }
-
+/*set h tag after reset*/
 h1{font-size: 200%;}
 h2{font-size: 150%;}
 h3{font-size: 100%;}
 h4{font-size: 75%;}
-/*using */
+
+/*any tags can extend these classes to ensure proper color assignment*/
 .color-light{
     background-color: var(--color-light);
     color: #000;
@@ -24,10 +26,15 @@ h4{font-size: 75%;}
     background-color: var(--color-dark);
     color: #fff;
 }
+/*any tags can extend these classes to ensure proper font size assignment*/
 .small-font{font-size: var(--small-font);}
 .medium-font{font-size: var(--medium-font);}
 .large-font{font-size: var(--large-font);}
 
+/*use grid to make three columns with the #name element in the first
+and nav element in the last.
+the middle element will be blank.
+justify and align the contents as space-around to move them from the edges a bit*/
 header {
     display: grid;
     height: 200px;
@@ -36,7 +43,8 @@ header {
     justify-content: space-around;
     align-content: space-around;
 }
-
+/*My name in the header.
+Styled to stand out from the rest of the text*/
 #name{
     white-space: nowrap;
     padding: 1rem .5rem .5rem .5rem;
@@ -45,33 +53,46 @@ header {
     border-radius: 1rem;
     text-shadow: 2px 2px black;
 }
-
+/*move nav menu to the 3rd column in the grid*/
 nav{
     grid-column: 3;
 }
 
+/*small amount of padding to seperate each item.
+align them to the right*/
 .nav-link{
     padding: .5rem;
     text-align: right;
 }
 
+/*keep color consistent with the rest of the header*/
 .nav-link a{
     color: var(--color-light);
     font-weight: 600;
+    border-radius: 5px;
+    padding: 5px;
     text-decoration: none;
     text-shadow: 2px 2px black;
 }
-
-main {
-    overflow: hidden;
+/*change link colors on hover*/
+.nav-link a:hover{
+    color: var(--color-dark);
+    background-color: var(--color-medium);
+    text-shadow: 2px 2px white
 }
+/*Give each section some padding to seperate them from one another.
+Each section will be a grid with 2 columns.
+On the left is the section title and on the right is the section contents.
 
+The title section is locked at 250px and the contents are size automatically.
+This keeps the titles from shrinking too much on smaller screen, but allows contents to take up more room on larger screens*/
 main > section{ 
     padding: 2rem 0 ;
     display: grid;
     grid-template-columns: 250px auto;
 }
 
+/*The section names are aligned to the right and seperated from the contents by the right edge of their border*/
 .section-name{
     padding: 0 1rem;
     font-size: var(--large-font);
@@ -79,14 +100,14 @@ main > section{
     border-style: none solid none none;
     text-align: right;
 }
+/*not much to say here*/
 .section-content{
     padding: 0 1rem;
     font-size: var(--medium-font);
     line-height: 2rem;
 }
-
-
-
+/*cards will display the name of a project and a brief description.
+They are made selectable, and will expand to show more information*/
 .project-card {
     padding: 1rem;
     margin:  1rem;
@@ -95,48 +116,55 @@ main > section{
     border-radius: 10px;
     box-shadow: inset .5em .5em  1em var(--color-light), .5em .5em 1em var(--color-dark);
 }
-
 .project-card .project-name{
-    margin: 2rem 0;
-    text-wrap: nowrap;
-    transition: all 1s;
+    /*TODO: style the names a bit eventually, maybe?*/
 }
-.project-card:focus-within .project-details{
-    padding: 1rem;
-    max-height:600px;
-}
+/*inset box-shadow is used to soften transition to lighter background.
+causes visual artefacts, will probably replace with something better looking later
+set transition to 1s for all animations, and a max-height of 0 to hide elements (animation only works with max-height, not height)
+overflow: hidden keeps text hidden when closed
+*/
 .project-details{
-    justify-content: space-between;
     border-radius: 10px;
     box-shadow: inset 0 0 1rem 1rem var(--color-medium);
     transition: all 1s;
     overflow: hidden;
     max-height: 0;
 }
+/*allow card to grow to an arbitrarily high value
+by changing the padding, the animation looks a bit more dynamic as it opens*/
+.project-card:focus-within .project-details{
+    padding: 1rem;
+    max-height:600px;
+}
 .project-details div{
     padding: 1rem;
-    text-align: center;
 }
+/*padding only on bottom keeps each paragraph seperated a little bit*/
 .project-details p{
     padding: 0 0 1rem 0;
-    text-align: center;
 }
+/*keep screenshots from getting too big
+adds a little style to make it a bit more dynamic*/
 .project-image {
     max-width: 50%;
     max-height: 200px;
     border-radius: 3px;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 10px var(--color-dark);
 }
-
+/*Italics for contact info*/
 #contact .section-content{
     font-style: italic;
 }
-
 footer {
     padding: 3rem 0;
     text-align: center;
 }
 
+/*Change the layout for smaller screens
+Now #name displays centered across the top with nav buttons side by side underneath
+Section titles lie on top of the section contents and text is centered
+*/
 @media (max-width:800px) {
     header {
         height: 200px;
@@ -145,7 +173,6 @@ footer {
         align-content: space-around;
         justify-content: space-around;
     }
-
     #name{
         text-align: center;
     }
@@ -172,5 +199,8 @@ footer {
     .section-name {
         margin: 1rem;
         padding: 1rem;
+    }
+    #contact .section-content {
+        text-align: center;
     }
 }
