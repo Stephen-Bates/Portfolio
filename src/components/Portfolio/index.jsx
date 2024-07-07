@@ -13,8 +13,8 @@ const Portfolio = () => {
                 <p>
                     These are some of the projects I&apos;ve worked on
                 </p>
-                {ProjectList.map(project => (
-                    <Project {...project} key={project.title}/>
+                {ProjectList.map((project, key) => (
+                    <Project {...project} key={key} />
                 ))}
             </SectionBody>
         </Container>
