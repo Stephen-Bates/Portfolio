@@ -1,4 +1,2 @@
-import SectionBody from "./SectionBody";
-import SectionHeader from "./SectionHeader";
-
-export default { SectionBody, SectionHeader }
+export { default as SectionHeader } from './SectionHeader'
+export { default as SectionBody } from './SectionBody'
