@@ -8,19 +8,24 @@ const pages = {
     children: [
         {
             index: true,
-            element: <AboutPage />
+            path: '/',
+            element: <AboutPage />,
+            name: "About",
         },
         {
             path: '/Contact',
-            element: <ContactPage />
+            element: <ContactPage />,
+            name: "Contact",
         },
         {
             path: '/Portfolio',
-            element: <PortfolioPage />
+            element: <PortfolioPage />,
+            name: "Portfolio",
         },
         {
             path: '/Resume',
-            element: <ResumePage />
+            element: <ResumePage />,
+            name: "Resume",
         },
     ],
     error: <ErrorPage />
