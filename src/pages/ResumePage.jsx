@@ -1,7 +1,9 @@
 import Resume from "../components/Resume";
 
-export default function ResumePage() {
+const ResumePage = () => {
     return (
         <Resume />
     );
 }
+
+export default ResumePage
