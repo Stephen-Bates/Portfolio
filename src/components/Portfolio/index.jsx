@@ -5,7 +5,7 @@ import Project from "./Project"
 
 const Portfolio = () => {
     return (
-        <Container>
+        <Container as={"main"}>
             <SectionHeader>
                 Portfolio
             </SectionHeader>

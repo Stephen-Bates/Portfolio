@@ -30,8 +30,10 @@ const ContactForm = () => {
 
     return (
         <Form onSubmit={onSubmit}>
-            <Form.Group>
-                <Form.Label>Name</Form.Label>
+            <Form.Group className="mb-3">
+                <Form.Label >
+                    Name
+                </Form.Label>
                 <Form.Control
                     name="name"
                     type="text"
@@ -39,7 +41,7 @@ const ContactForm = () => {
                     placeholder="Enter name"
                     required />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="mb-3">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
                     name="email"
@@ -48,7 +50,7 @@ const ContactForm = () => {
                     placeholder="Enter email"
                     required />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="mb-3">
                 <Form.Label>Message</Form.Label>
                 <Form.Control
                     name="message"
@@ -58,7 +60,7 @@ const ContactForm = () => {
                     placeholder="Send me a message"
                     required />
             </Form.Group>
-            <Button variant="secondary" type="submit">
+            <Button variant="secondary" type="submit" className="mb-3">
                 Submit
             </Button>
         </Form>
