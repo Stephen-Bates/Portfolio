@@ -1,8 +1,10 @@
-const SectionBody = ({ children }) => {
+import { Container } from "react-bootstrap"
+
+const SectionBody = ({ className, children }) => {
     return (
-        <section className="">
+        <Container as={"section"} className={`d-flex flex-column ${className}`}>
             {children}
-        </section>
+        </Container>
     )
 }
 

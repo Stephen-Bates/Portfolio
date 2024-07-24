@@ -1,8 +1,10 @@
-const SectionHeader = ({ children }) => {
+import { Container } from "react-bootstrap"
+
+const SectionHeader = ({ className, children }) => {
     return (
-        <h2 className="">
+        <Container as={"h2"} className={`${className}`}>
             {children}
-        </h2>
+        </Container>
     )
 }
 

@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap"
 
 const About = () => {
     return (
-        <Container>
+        <Container as={"main"}>
             <SectionHeader>
                 About Me
             </SectionHeader>
